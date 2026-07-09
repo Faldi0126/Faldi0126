@@ -53,7 +53,7 @@ TOKEN = os.environ.get("GH_TOKEN", "")
 # ---- your identity (edit these any time) ------------------------------------
 DISPLAY_NAME = os.environ.get("DISPLAY_NAME", "M Rifaldi")
 TAGLINE = os.environ.get("TAGLINE", "I care deeply about design and turn ideas into polished products.")
-CAREER_START = datetime.date(2023, 11, 1)
+CAREER_START = datetime.date(2022, 11, 1)
 # -----------------------------------------------------------------------------
 
 API_GRAPHQL = "https://api.github.com/graphql"
