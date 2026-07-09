@@ -1,0 +1,51 @@
+name: Refresh profile card
+
+on:
+  schedule:
+    # Runs once a week, Monday 06:00 UTC. Change the cron for a different slot.
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}       # lets you trigger it manually from the Actions tab
+  push:
+    branches: [main]
+    paths:
+      - generate.py
+      - fonts/**
+      - .github/workflows/profile-card.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate the card
+        env:
+          # Uses your personal token (secret named PROFILE_TOKEN) if you add one,
+          # for richer stats like the full contribution calendar. Otherwise falls
+          # back to the automatic token, which still covers public repos.
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_USERNAME: Faldi0126
+          DISPLAY_NAME: "M Rifaldi"
+          TAGLINE: "I care deeply about design and turn ideas into polished products."
+        run: python generate.py
+
+      - name: Commit updated SVG
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/profile-card.svg
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: refresh profile card [skip ci]"
+            git push
+          fi

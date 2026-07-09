@@ -1,0 +1,11 @@
+# local preview renders
+preview-*.png
+
+# variable-font working files (only the subset woff2 need to ship)
+fonts/*-var.ttf
+fonts/*-500.ttf
+fonts/*-400.ttf
+fonts/*-600.ttf
+
+__pycache__/
+*.pyc
