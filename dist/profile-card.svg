@@ -62,7 +62,7 @@
       <rect x="243.5" y="204" width="169.5" height="84" rx="14" fill="#FFFFFF"
             stroke="#E3E3DD" stroke-width="1"/>
       <text x="261.5" y="248" font-family="Sora" font-size="30"
-            font-weight="500" fill="#16233F">9</text>
+            font-weight="500" fill="#16233F">14</text>
       <text x="261.5" y="271" font-family="'Plus Jakarta Sans'"
             font-size="10" font-weight="600" letter-spacing="1.4"
             fill="#9BA1AD">DAY STREAK</text>
@@ -142,5 +142,5 @@
     <text x="780" y="450"
           text-anchor="end" font-family="'Plus Jakarta Sans'" font-size="10"
           font-weight="500" letter-spacing="0.5"
-          fill="#9BA1AD">UPDATED 13 JUL 2026</text>
+          fill="#9BA1AD">UPDATED 20 JUL 2026</text>
 </svg>
